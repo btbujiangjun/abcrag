@@ -1,0 +1,10 @@
+torch>=2.0.0
+transformers
+faiss-cpu
+fastapi
+uvicorn
+pydantic
+loguru
+numpy
+redis
+psutil

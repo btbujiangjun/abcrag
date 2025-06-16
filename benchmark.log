@@ -1,0 +1,10 @@
+2025-06-13 14:59:02.299 | INFO     | src.config:load_config:51 - Loaded configuration from config.yaml
+2025-06-13 14:59:07.059 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 14:59:07.446 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 14:59:07.447 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 14:59:07.447 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 14:59:08.006 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 14:59:10.619 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 14:59:11.783 | INFO     | src.reranker:load:24 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 14:59:12.335 | ERROR    | src.reranker:get_scores:59 - Reranking failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 14:59:12.342 | INFO     | src.reranker:unload:31 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B

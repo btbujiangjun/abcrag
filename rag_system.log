@@ -1,0 +1,318 @@
+2025-06-13 14:54:32.596 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 14:54:34.258 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 14:54:34.260 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 14:54:34.260 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 14:54:34.260 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 14:57:57.091 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 14:57:57.533 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 14:57:57.534 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 14:57:57.534 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 14:57:57.534 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 14:58:15.751 | ERROR    | src.api:health_check:70 - Health check failed: name 'torch' is not defined
+2025-06-13 15:20:29.259 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 15:20:29.654 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 15:20:29.657 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 15:20:29.657 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 15:20:29.657 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 15:30:55.177 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 15:30:55.567 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 15:30:55.570 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 15:30:55.570 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 15:30:55.570 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 15:34:43.756 | ERROR    | src.api:health_check:70 - Health check failed: name 'torch' is not defined
+2025-06-13 15:36:03.223 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 15:36:03.616 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 15:36:03.619 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 15:36:03.619 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 15:36:03.619 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 16:09:14.024 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 16:09:14.412 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 16:09:14.413 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 16:09:14.413 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 16:09:14.414 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 16:09:17.283 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 16:09:19.054 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 16:09:20.060 | INFO     | src.reranker:load:24 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 16:09:20.585 | ERROR    | src.reranker:get_scores:59 - Reranking failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 16:09:20.639 | INFO     | src.reranker:unload:31 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 16:09:20.639 | ERROR    | src.api:query:108 - Query processing failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 16:15:52.726 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 16:15:53.107 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 16:15:53.108 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 16:15:53.108 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 16:15:53.108 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 16:15:54.883 | ERROR    | src.api:query:110 - Query processing failed: name 'np' is not defined
+2025-06-13 16:15:56.913 | ERROR    | src.api:query:110 - Query processing failed: name 'np' is not defined
+2025-06-13 16:16:52.506 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 16:16:52.904 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 16:16:52.905 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 16:16:52.906 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 16:16:52.906 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 16:16:56.435 | INFO     | src.reranker:load:24 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 16:16:56.712 | ERROR    | src.reranker:get_scores:59 - Reranking failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 16:16:56.767 | INFO     | src.reranker:unload:31 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 16:16:56.767 | ERROR    | src.api:query:111 - Query processing failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 16:18:30.082 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 16:18:30.474 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 16:18:30.476 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 16:18:30.476 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 16:18:30.477 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 16:18:37.946 | INFO     | src.reranker:load:24 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 16:18:38.219 | ERROR    | src.reranker:get_scores:59 - Reranking failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 16:18:38.274 | INFO     | src.reranker:unload:31 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 16:23:52.131 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 16:23:52.519 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 16:23:52.520 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 16:23:52.520 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 16:23:52.521 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 16:23:53.126 | INFO     | src.reranker:load:24 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 16:23:53.403 | ERROR    | src.reranker:get_scores:59 - Reranking failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 16:23:53.458 | INFO     | src.reranker:unload:31 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 16:41:36.067 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 16:41:36.456 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 16:41:36.456 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 16:41:36.456 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 16:41:36.457 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 16:42:07.200 | INFO     | src.reranker:load:26 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 16:42:07.472 | ERROR    | src.reranker:get_scores:61 - Reranking failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 16:42:07.527 | INFO     | src.reranker:unload:33 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 16:54:52.600 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 16:54:52.991 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 16:54:52.992 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 16:54:52.992 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 16:54:52.993 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 16:55:11.322 | INFO     | src.reranker:load:26 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 16:55:11.958 | INFO     | src.reranker:unload:33 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 17:06:30.983 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 17:06:31.373 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 17:06:31.377 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 17:06:31.377 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 17:06:31.378 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 17:06:32.196 | INFO     | src.reranker:load:26 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 17:06:32.705 | INFO     | src.reranker:unload:33 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 17:14:21.982 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 17:14:22.181 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 17:14:22.723 | INFO     | src.reranker:load:26 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 17:14:23.313 | INFO     | src.reranker:unload:33 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 17:14:57.043 | INFO     | src.reranker:load:26 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 17:14:57.427 | INFO     | src.reranker:unload:33 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 17:27:26.649 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 17:27:27.031 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 17:27:27.031 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 17:27:27.031 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 17:27:27.032 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 17:27:27.666 | INFO     | src.reranker:load:26 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 17:27:27.936 | ERROR    | src.reranker:get_scores:62 - Reranking failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 17:27:27.991 | INFO     | src.reranker:unload:33 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 17:56:53.935 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 17:56:54.347 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 17:56:54.348 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 17:56:54.348 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 17:56:54.348 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-13 17:56:59.094 | INFO     | src.reranker:load:26 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-13 17:56:59.375 | ERROR    | src.reranker:get_scores:62 - Reranking failed: Cannot handle batch sizes > 1 if no padding token is defined.
+2025-06-13 17:56:59.430 | INFO     | src.reranker:unload:33 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-13 18:02:11.761 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-13 18:02:12.154 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-13 18:02:12.157 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-13 18:02:12.157 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-13 18:02:12.157 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 10:59:56.467 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 10:59:56.894 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 10:59:56.896 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 10:59:56.897 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 10:59:56.897 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 11:00:40.360 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 11:00:40.544 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 11:00:41.072 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 11:00:41.074 | ERROR    | src.reranker:get_scores:81 - Reranking failed: name 'model' is not defined
+2025-06-16 11:00:41.097 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 11:01:13.712 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 11:01:14.104 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 11:01:14.106 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 11:01:14.106 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 11:01:14.107 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 11:01:15.401 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 11:01:15.909 | ERROR    | src.reranker:get_scores:81 - Reranking failed: a Tensor with 6 elements cannot be converted to Scalar
+2025-06-16 11:01:15.939 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 11:02:06.418 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 11:02:06.833 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 11:02:06.835 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 11:02:06.835 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 11:02:06.835 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 11:02:09.003 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 11:02:09.776 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 11:02:51.775 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 11:02:52.191 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 11:03:35.715 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 11:03:36.121 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 11:03:36.122 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 11:03:36.122 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 11:03:36.122 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 11:03:38.468 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 11:03:39.023 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 11:05:17.829 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 11:05:18.211 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 11:05:18.213 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 11:05:18.213 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 11:05:18.213 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 11:05:35.261 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 11:05:36.453 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 11:19:26.596 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 11:19:26.974 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 11:19:26.974 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 11:19:26.974 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 11:19:26.975 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 11:21:48.520 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 11:21:48.899 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 11:21:48.902 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 11:21:48.902 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 11:21:48.902 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 11:21:57.092 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 11:21:57.764 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 14:35:18.993 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 14:35:19.389 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 14:35:19.391 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 14:35:19.391 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 14:35:19.392 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 14:35:20.342 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 14:35:20.525 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 14:35:21.693 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 14:35:22.503 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 14:35:22.503 | ERROR    | src.cache:set_reranked:55 - Failed to set reranked results in cache: Object of type float16 is not JSON serializable
+2025-06-16 14:35:22.503 | INFO     | src.api:query:112 - Processed query: Python 中如何实现快速排序？, latency: 2.733s
+2025-06-16 14:43:32.571 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 14:43:33.043 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 14:43:33.043 | ERROR    | src.cache:set_reranked:55 - Failed to set reranked results in cache: Object of type float16 is not JSON serializable
+2025-06-16 14:43:33.043 | INFO     | src.api:query:112 - Processed query: Python 中如何实现快速排序？, latency: 1.069s
+2025-06-16 14:44:21.167 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 14:44:21.543 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 14:44:21.543 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 14:44:21.543 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 14:44:21.544 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 14:44:22.914 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 14:44:23.201 | ERROR    | src.reranker:get_scores:78 - Reranking failed: can't convert mps:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+2025-06-16 14:44:23.404 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 14:44:52.118 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 14:44:52.505 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 14:44:52.505 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 14:44:52.505 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 14:44:52.506 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 14:44:59.126 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 14:44:59.627 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 14:44:59.627 | ERROR    | src.cache:set_reranked:55 - Failed to set reranked results in cache: Object of type float16 is not JSON serializable
+2025-06-16 14:44:59.627 | INFO     | src.api:query:112 - Processed query: Python 中如何实现快速排序？, latency: 1.067s
+2025-06-16 14:46:58.873 | INFO     | src.reranker:load:38 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 14:46:59.273 | INFO     | src.reranker:unload:45 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 14:46:59.274 | ERROR    | src.cache:set_reranked:55 - Failed to set reranked results in cache: Object of type float16 is not JSON serializable
+2025-06-16 14:46:59.438 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 14:46:59.438 | ERROR    | src.api:generate:155 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 14:57:27.582 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 14:57:27.979 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 14:57:27.980 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 14:57:27.980 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 14:57:27.980 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 14:57:36.282 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 14:57:36.837 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 14:57:36.837 | ERROR    | src.cache:set_reranked:55 - Failed to set reranked results in cache: Object of type float16 is not JSON serializable
+2025-06-16 14:57:37.013 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 14:57:37.014 | ERROR    | src.api:generate:153 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 15:15:18.403 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 15:15:18.795 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 15:15:18.796 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 15:15:18.796 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 15:15:18.797 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 15:15:25.760 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 15:15:26.361 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 15:15:26.362 | ERROR    | src.cache:set_reranked:56 - Failed to set reranked results in cache: Object of type float16 is not JSON serializable
+2025-06-16 15:15:26.550 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 15:15:26.550 | ERROR    | src.api:generate:153 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 15:49:58.768 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 15:49:59.164 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 15:49:59.166 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 15:49:59.166 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 15:49:59.166 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 15:50:37.141 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 15:50:37.328 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 15:50:38.540 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 15:50:39.139 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 15:50:39.140 | ERROR    | src.cache:set_reranked:56 - Failed to set reranked results in cache: Object of type float16 is not JSON serializable
+2025-06-16 15:50:39.140 | INFO     | src.api:query:111 - Processed query: Python 中如何实现快速排序？, latency: 2.564s
+2025-06-16 15:51:30.003 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 15:51:30.444 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 15:51:30.444 | ERROR    | src.cache:set_reranked:56 - Failed to set reranked results in cache: Object of type float16 is not JSON serializable
+2025-06-16 15:51:30.611 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 15:51:30.611 | ERROR    | src.api:generate:154 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 15:58:39.530 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 15:58:39.909 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 15:58:39.911 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 15:58:39.911 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 15:58:39.912 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 15:58:41.711 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 15:58:42.205 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 15:58:42.205 | ERROR    | src.cache:set_reranked:56 - Failed to set reranked results in cache: Object of type float32 is not JSON serializable
+2025-06-16 15:58:42.367 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 15:58:42.367 | ERROR    | src.api:generate:154 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 15:59:34.277 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 15:59:34.659 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 15:59:34.660 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 15:59:34.660 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 15:59:34.660 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 15:59:40.618 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 15:59:41.064 | ERROR    | src.reranker:get_scores:77 - Reranking failed: 'numpy.ndarray' object has no attribute 'float'
+2025-06-16 15:59:41.124 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 15:59:41.124 | ERROR    | src.api:generate:154 - Generation failed: 'numpy.ndarray' object has no attribute 'float'
+2025-06-16 16:00:25.958 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 16:00:26.344 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 16:00:26.346 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 16:00:26.346 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 16:00:26.347 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 16:00:31.329 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 16:00:31.832 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 16:00:31.832 | ERROR    | src.cache:set_reranked:56 - Failed to set reranked results in cache: Object of type float32 is not JSON serializable
+2025-06-16 16:00:31.990 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 16:00:31.990 | ERROR    | src.api:generate:154 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 16:02:03.076 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 16:02:03.458 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 16:02:03.459 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 16:02:03.459 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 16:02:03.459 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 16:02:10.824 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 16:02:11.327 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 16:02:11.328 | ERROR    | src.api:generate:154 - Generation failed: Object of type float32 is not JSON serializable
+2025-06-16 16:04:13.411 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 16:04:13.807 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 16:04:13.809 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 16:04:13.809 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 16:04:13.809 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 16:04:31.079 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 16:04:31.522 | ERROR    | src.reranker:get_scores:77 - Reranking failed: a Tensor with 6 elements cannot be converted to Scalar
+2025-06-16 16:04:31.578 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 16:04:31.578 | ERROR    | src.api:generate:154 - Generation failed: a Tensor with 6 elements cannot be converted to Scalar
+2025-06-16 16:09:50.644 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 16:09:51.034 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 16:09:51.037 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 16:09:51.037 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 16:09:51.037 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 16:10:06.028 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 16:10:06.515 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 16:10:06.686 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 16:10:06.687 | ERROR    | src.api:generate:154 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 16:11:19.200 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 16:11:19.610 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 16:11:19.619 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 16:11:19.620 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 16:11:19.620 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 16:11:21.031 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 16:11:21.537 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 16:11:21.696 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 16:11:21.696 | ERROR    | src.api:generate:154 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 16:19:53.423 | INFO     | src.embedding:load:24 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-16 16:19:53.809 | INFO     | src.embedding:unload:31 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-16 16:19:53.811 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-16 16:19:53.811 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-16 16:19:53.812 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-16 16:19:57.414 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-16 16:19:57.913 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-16 16:19:58.071 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-16 16:19:58.071 | ERROR    | src.api:generate:154 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.

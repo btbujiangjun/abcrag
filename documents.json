@@ -1,0 +1,8 @@
+[
+  {"id": 0, "text": "Python 中实现快速排序的代码：def quicksort(arr): if len(arr) <= 1: return arr; pivot = arr[len(arr)//2]; left = [x for x in arr if x < pivot]; middle = [x for x in arr if x == pivot]; right = [x for x in arr if x > pivot]; return quicksort(left) + middle + quicksort(right)"},
+  {"id": 1, "text": "快速排序是一种高效的排序算法，平均时间复杂度为 O(n log n)，通过分治法实现。"},
+  {"id": 2, "text": "Python 实现归并排序的代码：def merge_sort(arr): ..."},
+  {"id": 3, "text": "快速排序的优化方法包括三数取中、插入排序优化小数组等。"},
+  {"id": 4, "text": "Java 中实现快速排序的代码：public class QuickSort { ... }"},
+  {"id": 5, "text": "如何用中文描述快速排序？快速排序通过选择一个基准值将数组分为两部分，递归排序。"}
+]

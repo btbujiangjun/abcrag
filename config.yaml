@@ -1,0 +1,43 @@
+# Model settings
+embedding_model:
+  name: "../models/Qwen/Qwen3-Embedding-0.6B"
+  max_length: 512
+  batch_size: 16
+  device: "mps"
+reranker_model:
+  name: "../models/Qwen/Qwen3-Reranker-0.6B"
+  max_length: 512
+  batch_size: 8
+  device: "mps"
+generator_model:
+  name: "../models/Qwen/Qwen3-8B-FP8"  # Smaller LLM for MPS
+  max_length: 512
+  max_new_tokens: 200
+  device: "mps"
+
+# FAISS settings
+faiss:
+  index_type: "Flat"
+  nprobe: 10
+  index_path: "embeddings.index"
+
+# Document store
+documents:
+  path: "documents.json"
+
+# Redis cache
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+  ttl: 3600  # Cache TTL in seconds (1 hour)
+
+# API settings
+api:
+  host: "0.0.0.0"
+  port: 8000
+
+# Logging
+logging:
+  level: "INFO"
+  path: "rag_system.log"
