@@ -47,13 +47,13 @@ class Cache:
             return None
 
     def set_reranked(self, query: str, reranked: List[Tuple[int, float, str]], instruction: Optional[str] = None):
-        if True:#try:
+        try:
             cache_key = self.get_cache_key(query, instruction)
             reranked = [[int_v, float_v.item(), str_v] for int_v, float_v, str_v in reranked]
             print(reranked)
             self.client.setex(f"reranked:{cache_key}", self.ttl, json.dumps(reranked))
             logger.debug(f"Cached reranked results: {cache_key}")
-        else:#except Exception as e:
+        except Exception as e:
             logger.error(f"Failed to set reranked results in cache: {e}")
 
     def get_generated(self, query: str, instruction: Optional[str] = None) -> Optional[str]:

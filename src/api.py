@@ -77,8 +77,7 @@ def setup_api(config: dict):
     @app.post("/query", response_model=QueryResponse)
     async def query(request: QueryRequest, api_key: str = Depends(verify_api_key)):
         start_time = time.time()
-        #try:
-        if True:
+        try:
             cached_reranked = cache.get_reranked(request.query, [doc["text"] for doc in retriever.documents], request.instruction)
             if cached_reranked:
                 results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in cached_reranked]
@@ -104,14 +103,12 @@ def setup_api(config: dict):
             )
 
             reranked = reranked[:request.top_n]
-            print(reranked)
             cache.set_reranked(request.query, reranked, request.instruction)
 
             results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in reranked]
             logger.info(f"Processed query: {request.query}, latency: {time.time() - start_time:.3f}s")
             return QueryResponse(results=results)
-        #except Exception as e:
-        else:
+        except Exception as e:
             logger.error(f"Query processing failed: {e}")
             raise HTTPException(status_code=500, detail=str(e))
 
