@@ -1,6 +1,7 @@
 # abcrag
 from zero to one for `rag` using `Qwen3`, `Qwen3 Embedding`, `Qwen3 Reranker`
 
+## Usage
 ```bash
 curl http://localhost:8000/health
 ```
