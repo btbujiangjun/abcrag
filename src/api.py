@@ -18,11 +18,12 @@ import os
 api_key_header = APIKeyHeader(name="X-API-Key")
 
 async def verify_api_key(api_key: str = Security(api_key_header)):
-    """
+    
     expected_key = os.getenv("API_KEY")
+    print(f"expected_key:{expected_key}")
     if not expected_key or api_key != expected_key:
         raise HTTPException(status_code=401, detail="Invalid API key")
-    """
+    print(f"api_key:{api_key}")
     return api_key
 
 class QueryRequest(BaseModel):
@@ -78,32 +79,60 @@ def setup_api(config: dict):
     async def query(request: QueryRequest, api_key: str = Depends(verify_api_key)):
         start_time = time.time()
         try:
-            cached_reranked = cache.get_reranked(request.query, [doc["text"] for doc in retriever.documents], request.instruction)
+            cached_reranked = cache.get_reranked(
+                request.query, 
+                [doc["text"] for doc in retriever.documents], 
+                request.instruction
+            )
             if cached_reranked:
-                results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in cached_reranked]
+                results = [
+                    {"id": idx, "text": text[:100] + "...", "score": float(score)} 
+                        for idx, score, text in cached_reranked
+                ]
                 logger.info(f"Cache hit for query: {request.query}, latency: {time.time() - start_time:.3f}s")
                 return QueryResponse(results=results)
 
-            cached_embedding = cache.get_embedding(request.query, request.instruction)
+            cached_embedding = cache.get_embedding(
+                request.query, 
+                request.instruction
+            )
             if cached_embedding:
                 query_embedding = np.array(cached_embedding, dtype=np.float32)[None, :]
             else:
-                query_embedding = embedding_model.get_embeddings([request.query], request.instruction)
-                cache.set_embedding(request.query, query_embedding[0].tolist(), request.instruction)
+                query_embedding = embedding_model.get_embeddings(
+                    [request.query], 
+                    request.instruction
+                )
+                cache.set_embedding(
+                    request.query, 
+                    query_embedding[0].tolist(), 
+                    request.instruction
+                )
 
-            retrieved = retriever.retrieve_with_embedding(query_embedding, request.top_k)
+            retrieved = retriever.retrieve_with_embedding(
+                query_embedding, 
+                request.top_k
+            )
             docs = [retriever.documents[idx]["text"] for idx, _ in retrieved]
-            scores = reranker_model.get_scores(request.query, docs, request.instruction)
+            scores = reranker_model.get_scores(
+                request.query, 
+                docs, 
+                request.instruction
+            )
             
             reranked = sorted(
                 [(retrieved[i][0], score, retriever.documents[retrieved[i][0]]["text"])
-                 for i, score in enumerate(scores)],
+                    for i, score in enumerate(scores)],
                 key=lambda x: x[1],
                 reverse=True
             )
 
             reranked = reranked[:request.top_n]
-            cache.set_reranked(request.query, reranked, request.instruction)
+            cache.set_reranked(
+                request.query, 
+                reranked, 
+                request.instruction
+            )
 
             results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in reranked]
             logger.info(f"Processed query: {request.query}, latency: {time.time() - start_time:.3f}s")
@@ -116,37 +145,77 @@ def setup_api(config: dict):
     async def generate(request: GenerateRequest, api_key: str = Depends(verify_api_key)):
         start_time = time.time()
         try:
-            cached_answer = cache.get_generated(request.query, request.instruction)
+            cached_answer = cache.get_generated(
+                request.query, 
+                request.instruction
+            )
             if cached_answer:
-                cached_reranked = cache.get_reranked(request.query, [doc["text"] for doc in retriever.documents], request.instruction)
+                cached_reranked = cache.get_reranked(
+                    request.query, 
+                    [doc["text"] for doc in retriever.documents], 
+                    request.instruction
+                )
                 results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in cached_reranked]
                 logger.info(f"Cache hit for generated answer: {request.query}, latency: {time.time() - start_time:.3f}s")
-                return GenerateResponse(query=request.query, answer=cached_answer, documents=results)
+                return GenerateResponse(
+                    query=request.query, 
+                    answer=cached_answer, 
+                    documents=results
+                )
 
-            cached_embedding = cache.get_embedding(request.query, request.instruction)
+            cached_embedding = cache.get_embedding(
+                request.query, 
+                request.instruction
+            )
             if cached_embedding:
                 query_embedding = np.array(cached_embedding, dtype=np.float32)[None, :]
             else:
-                query_embedding = embedding_model.get_embeddings([request.query], request.instruction)
-                cache.set_embedding(request.query, query_embedding[0].tolist(), request.instruction)
+                query_embedding = embedding_model.get_embeddings(
+                    [request.query], 
+                    request.instruction
+                )
+                cache.set_embedding(
+                    request.query, 
+                    query_embedding[0].tolist(), 
+                    request.instruction
+                )
 
-            retrieved = retriever.retrieve_with_embedding(query_embedding, request.top_k)
+            retrieved = retriever.retrieve_with_embedding(
+                query_embedding, 
+                request.top_k
+            )
             docs = [retriever.documents[idx]["text"] for idx, _ in retrieved]
-            scores = reranker_model.get_scores(request.query, docs, request.instruction)
+            scores = reranker_model.get_scores(
+                request.query, 
+                docs, 
+                request.instruction
+            )
             reranked = sorted(
                 [(retrieved[i][0], score, retriever.documents[retrieved[i][0]]["text"])
-                 for i, score in enumerate(scores)],
+                    for i, score in enumerate(scores)],
                 key=lambda x: x[1],
                 reverse=True
             )[:request.top_n]
-            cache.set_reranked(request.query, reranked, request.instruction)
+            cache.set_reranked(
+                request.query, 
+                reranked, 
+                request.instruction
+            )
 
             top_docs = [text for _, _, text in reranked]
             answer = generator.generate(request.query, top_docs)
-            cache.set_generated(request.query, answer, request.instruction)
+            cache.set_generated(
+                request.query, 
+                answer, 
+                request.instruction
+            )
             results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in reranked]
             logger.info(f"Generated answer for query: {request.query}, latency: {time.time() - start_time:.3f}s")
-            return GenerateResponse(query=request.query, answer=answer, documents=results)
+            return GenerateResponse(
+                query=request.query, 
+                answer=answer, 
+                documents=results
+            )
         except Exception as e:
             logger.error(f"Generation failed: {e}")
             raise HTTPException(status_code=500, detail=str(e))
