@@ -316,3 +316,15 @@
 2025-06-16 16:19:57.913 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
 2025-06-16 16:19:58.071 | ERROR    | src.generator:generate:44 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
 2025-06-16 16:19:58.071 | ERROR    | src.api:generate:154 - Generation failed: No GPU or XPU found. A GPU or XPU is needed for FP8 quantization.
+2025-06-17 09:52:47.526 | INFO     | src.embedding:load:27 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-17 09:52:47.978 | INFO     | src.embedding:unload:34 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-17 09:52:47.981 | INFO     | src.retrieval:load_or_build_index:45 - FAISS index built and saved to embeddings.index
+2025-06-17 09:52:47.981 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
+2025-06-17 09:52:47.981 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
+2025-06-17 09:54:00.381 | INFO     | src.embedding:load:27 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-17 09:54:00.582 | INFO     | src.embedding:unload:34 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-17 09:54:01.857 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-17 09:54:02.443 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-17 09:54:41.154 | INFO     | src.generator:load:23 - Loaded Generator: ../models/Qwen/Qwen3-8B on mps
+2025-06-17 09:55:28.036 | INFO     | src.generator:unload:30 - Unloaded Generator: ../models/Qwen/Qwen3-8B
+2025-06-17 09:55:28.045 | INFO     | src.api:generate:151 - Generated answer for query: Python 中如何实现快速排序？, latency: 88.269s
