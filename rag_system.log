@@ -364,3 +364,10 @@
 2025-06-17 16:53:05.327 | INFO     | src.retrieval:__init__:15 - Initialized Retriever with 6 documents
 2025-06-17 16:53:05.328 | INFO     | src.cache:__init__:11 - Initialized Redis cache at localhost:6379, db=0
 2025-06-17 16:53:45.147 | INFO     | src.api:generate:159 - Cache hit for generated answer: Python 中如何实现快速排序？, latency: 0.002s
+2025-06-25 17:33:36.295 | INFO     | src.embedding:load:27 - Loaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B on mps
+2025-06-25 17:33:36.599 | INFO     | src.embedding:unload:34 - Unloaded EmbeddingModel: ../models/Qwen/Qwen3-Embedding-0.6B
+2025-06-25 17:33:38.010 | INFO     | src.reranker:load:37 - Loaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B on mps
+2025-06-25 17:33:38.676 | INFO     | src.reranker:unload:44 - Unloaded RerankerModel: ../models/Qwen/Qwen3-Reranker-0.6B
+2025-06-25 17:34:14.673 | INFO     | src.generator:load:23 - Loaded Generator: ../models/Qwen/Qwen3-8B on mps
+2025-06-25 17:34:45.871 | INFO     | src.generator:unload:30 - Unloaded Generator: ../models/Qwen/Qwen3-8B
+2025-06-25 17:34:45.882 | INFO     | src.api:generate:213 - Generated answer for query: Python 中如何实现快速排序？, latency: 72.080s
