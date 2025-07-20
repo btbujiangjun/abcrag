@@ -1,7 +1,6 @@
 import torch
-from transformers import AutoModel, AutoTokenizer
-from loguru import logger
 import numpy as np
+from loguru import logger
 from typing import List, Optional
 
 class EmbeddingModel:
@@ -17,6 +16,7 @@ class EmbeddingModel:
 
     def load(self):
         if self.model is None:
+            from transformers import AutoModel, AutoTokenizer
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
             self.model = AutoModel.from_pretrained(
                 self.model_name, 

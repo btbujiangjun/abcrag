@@ -2,7 +2,6 @@ import torch
 import numpy as np
 from loguru import logger
 from typing import List, Optional
-from modelscope import AutoTokenizer, AutoModelForCausalLM
 
 class RerankerModel:
     def __init__(self, name: str, max_length: int, batch_size: int, device: str):
@@ -19,6 +18,7 @@ class RerankerModel:
     
     def load(self):
         if self.model is None:
+            from modelscope import AutoTokenizer, AutoModelForCausalLM
             self.tokenizer = AutoTokenizer.from_pretrained(
                 self.model_name, 
                 padding_side='left'

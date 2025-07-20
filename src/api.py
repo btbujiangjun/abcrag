@@ -1,19 +1,20 @@
-from fastapi import FastAPI, HTTPException, Depends, Security
-from fastapi.security import APIKeyHeader
-from pydantic import BaseModel
+import os
+import time
+import torch
+import psutil
+import numpy as np
 from loguru import logger
 from typing import List, Tuple
-import numpy as np
+from jose import JWTError, jwt
+from pydantic import BaseModel
+from fastapi.security import APIKeyHeader
+from fastapi import FastAPI, HTTPException, Depends, Security
 from .embedding import EmbeddingModel
 from .reranker import RerankerModel
 from .retrieval import Retriever
 from .generator import Generator
 from .cache import Cache
-import torch
-import psutil
-import time
-from jose import JWTError, jwt
-import os
+from .config import Config
 
 api_key_header = APIKeyHeader(name="X-API-Key")
 
@@ -52,11 +53,11 @@ class UpdateResponse(BaseModel):
     status: str
     doc_id: int = None
 
-def setup_api(config: dict):
+def setup_api(config: Config):
     app = FastAPI(title="Qwen3 RAG System")
-    embedding_model = EmbeddingModel(**config.embedding_model.dict())
-    reranker_model = RerankerModel(**config.reranker_model.dict())
-    generator = Generator(**config.generator_model.dict())
+    embedding_model = EmbeddingModel(**config.embedding_model.model_dump())
+    reranker_model = RerankerModel(**config.reranker_model.model_dump())
+    generator = Generator(**config.generator_model.model_dump())
     retriever = Retriever(config, embedding_model)
     cache = Cache(**config.redis.dict())
 

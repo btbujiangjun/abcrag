@@ -1,7 +1,6 @@
 import torch
 from loguru import logger
 from typing import List, Optional
-from modelscope import AutoTokenizer, AutoModelForCausalLM
 
 class Generator:
     def __init__(self, name: str, max_length: int, max_new_tokens: int, device: str):
@@ -16,6 +15,7 @@ class Generator:
 
     def load(self):
         if self.model is None:
+            from modelscope import AutoTokenizer, AutoModelForCausalLM
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
             self.model = AutoModelForCausalLM.from_pretrained(
                 self.model_name, 

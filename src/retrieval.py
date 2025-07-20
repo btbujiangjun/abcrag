@@ -3,14 +3,14 @@ import lmdb
 import json
 import shutil
 import numpy as np
+from pathlib import Path
 from loguru import logger
 from typing import List, Tuple, Dict
-from pathlib import Path
 from unstructured.partition.pdf import partition_pdf
 from .embedding import EmbeddingModel
 
 class Extractor:
-    def __init__(self, config: dict):
+    def __init__(self, config):
         self.min_length = config.chunk.min_length
         self.chunk_size = config.chunk.chunk_size
         self.overlap = config.chunk.overlap
@@ -24,7 +24,7 @@ class Extractor:
         return chunks
 
 class PdfExtractor(Extractor):
-    def __init__(self, config: dict):
+    def __init__(self, config):
         super().__init__(config)
     
     def extract(self, path: str) -> List[str]:
@@ -40,7 +40,7 @@ class PdfExtractor(Extractor):
         return chunks
 
 class Retriever:
-    def __init__(self, config: dict, embedding_model: EmbeddingModel):
+    def __init__(self, config, embedding_model: EmbeddingModel):
         self.embedding_model = embedding_model
         self.config = config
         self.extractors = {}
