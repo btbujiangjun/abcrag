@@ -11,9 +11,9 @@ from .embedding import EmbeddingModel
 
 class Extractor:
     def __init__(self, config: dict):
-        self.min_length = config.chunk["min_length"]
-        self.chunk_size = config.chunk["chunk_size"]
-        self.overlap = config.chunk["overlap"]
+        self.min_length = config.chunk.min_length
+        self.chunk_size = config.chunk.chunk_size
+        self.overlap = config.chunk.overlap
     
     def extract(self, content: str) -> List[str]:
         start, chunks = 0, []
@@ -46,15 +46,16 @@ class Retriever:
         self.extractors = {}
         self.max_chunk_id = 0
         self.documents = self.load_documents(config.documents["path"])
-        self.db, self.index = self.load_or_build_index(
+        self.db, self.index = None, None
+        self.load_or_build_index(
             config.faiss.index_path, 
-            config.lmdb["path"], 
-            config.lmdb["map_size"], 
+            config.lmdb.path, 
+            config.lmdb.map_size, 
             self.documents
         )
         self.nprobe = config.faiss.nprobe
         self.documents_path = config.documents["path"]
-        logger.info(f"Initialized Retriever with {len(self.documents)} documents")
+        logger.info(f"Initialized Retriever with {len(self.documents)} documents {self.index.ntotal} chunks.")
 
     def _extractor(self, file: str) -> List[str]:
         file_extension = Path(file).suffix[1:]
@@ -85,19 +86,19 @@ class Retriever:
             logger.error(f"Failed to save documents: {e}")
             raise
     
-    def _load(self, faiss_path: str, 
+    def _load(self, 
+            faiss_path: str, 
             db_path: str, 
-            map_size: int = 500 * 1024 * 1024
-        ):
-        db, index = None, None
+            map_size: int
+        ) -> bool:
         if Path(faiss_path).exists() and Path(db_path).exists():
-            index = faiss.read_index(faiss_path)
-            db = lmdb.open(db_path, map_size=map_size)
-            with db.begin() as dbc:
+            self.index = faiss.read_index(faiss_path)
+            self.db = lmdb.open(db_path, map_size=map_size)
+            with self.db.begin() as dbc:
                 self.max_chunk_id = dbc.stat()['entries']
-        return (db, index)
+        return all([self.db, self.index])
    
-    def _process_file(self, index, db, doc_id: int, path: str):
+    def _process_file(self, doc_id: int, path: str):
         if not Path(path).exists():
             logger.error(f"File not found:{path}")
             return
@@ -108,48 +109,44 @@ class Retriever:
             return
 
         embeddings = self.embedding_model.get_embeddings(chunks)
-        if index is None:
-            index = faiss.IndexFlatIP(embeddings.shape[1])
-        index.add(embeddings)
-            
-        with db.begin(write=True) as dbc: 
+        if self.index is None:
+            self.index = faiss.IndexFlatIP(embeddings.shape[1])
+        self.index.add(embeddings)
+        with self.db.begin(write=True) as dbc: 
             for chunk in chunks:
                 key = str(self.max_chunk_id).encode('utf-8')
                 value = json.dumps({"id": doc_id, "path": path, "text": chunk}).encode("utf-8")
                 dbc.put(key, value)
                 self.max_chunk_id += 1
 
-    def _build(self, faiss_path: str, 
+    def _build(self, 
+            faiss_path: str, 
             db_path: str, 
             map_size: int,
             documents: List[dict]
         ):
-        index = None
         path = Path(db_path)
         if path.exists():
             shutil.rmtree(path, ignore_errors=True)
 
-        db = lmdb.open(db_path, map_size=map_size)
+        self.db = lmdb.open(db_path, map_size=map_size)
         for i, doc in enumerate(documents):
             path = doc["path"]
-            self._process_file(index, db, i, path)
+            self._process_file(i, path)
             logger.info(f"Index built {i}/{len(documents)}:{path}.")
-
-        faiss.write_index(index, faiss_path)
+            if i % 5 == 0:
+                faiss.write_index(self.index, faiss_path)
+        faiss.write_index(self.index, faiss_path)
         #db.close()
-        logger.info(f"FAISS index built and saved to {faiss} and {db}")
-        return (db, index)
-
+        logger.info(f"FAISS index built and saved to {faiss_path}.")
 
     def load_or_build_index(self, faiss_path: str, 
             db_path: str, 
             map_size: int,
             documents: List[dict]
         ):
-        db, index = self._load(faiss_path, db_path, map_size)
-        if not all([db, index]):
-            db, index = self._build(faiss_path, db_path, map_size, documents)
-        return (db, index)
+        if not self._load(faiss_path, db_path, map_size):
+            self._build(faiss_path, db_path, map_size, documents)
 
     def get_chunks_from_ids(self, ids:List[int]):
         with self.db.begin() as dbc:
@@ -159,7 +156,7 @@ class Retriever:
     def add_document(self, path: str):
         new_id = max([doc["id"] for doc in self.documents], default=-1) + 1
         self.documents.append({"id": new_id, "path": path})
-        self._process_file(self.index, self.db, new_id, path)
+        self._process_file(new_id, path)
         self.save_documents()
         faiss.write_index(self.index, self.config.faiss.index_path)
         logger.info(f"Added document with ID {new_id}")
@@ -170,10 +167,10 @@ class Retriever:
                 raise ValueError(f"Document ID {doc_id} not found")
             self.documents = [doc for doc in self.documents if doc["id"] != doc_id]
             # Rebuild index
-            self.db, self.index = self._build(
+            self._build(
                 self.config.faiss.index_path, 
-                self.config.lmdb["path"], 
-                self.config.lmdb["map_size"], 
+                self.config.lmdb.path, 
+                self.config.lmdb.map_size, 
                 self.documents
             )
             self.save_documents()

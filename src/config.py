@@ -19,6 +19,15 @@ class FaissConfig(BaseModel):
     nprobe: int
     index_path: str
 
+class ChunkConfig(BaseModel):
+    min_length: int
+    chunk_size: int
+    overlap: int
+
+class LmdbConfig(BaseModel):
+    path: str
+    map_size: int
+
 class RedisConfig(BaseModel):
     host: str
     port: int
@@ -38,6 +47,8 @@ class Config(BaseModel):
     reranker_model: ModelConfig
     generator_model: GeneratorConfig
     faiss: FaissConfig
+    chunk: ChunkConfig
+    lmdb: LmdbConfig
     documents: dict
     redis: RedisConfig
     api: ApiConfig
