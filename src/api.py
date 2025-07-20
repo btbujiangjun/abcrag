@@ -81,7 +81,6 @@ def setup_api(config: dict):
         try:
             cached_reranked = cache.get_reranked(
                 request.query, 
-                [doc["text"] for doc in retriever.documents], 
                 request.instruction
             )
             if cached_reranked:
@@ -113,7 +112,7 @@ def setup_api(config: dict):
                 query_embedding, 
                 request.top_k
             )
-            docs = [retriever.documents[idx]["text"] for idx, _ in retrieved]
+            docs = retriever.get_chunks_from_ids([idx for idx, _ in retrieved])
             scores = reranker_model.get_scores(
                 request.query, 
                 docs, 
@@ -121,8 +120,8 @@ def setup_api(config: dict):
             )
             
             reranked = sorted(
-                [(retrieved[i][0], score, retriever.documents[retrieved[i][0]]["text"])
-                    for i, score in enumerate(scores)],
+                #[(retrieved[i][0], score, retriever.documents[retrieved[i][0]]["text"])
+                [(retrieved[i][0], score, docs[i]) for i, score in enumerate(scores)],
                 key=lambda x: x[1],
                 reverse=True
             )
@@ -144,7 +143,8 @@ def setup_api(config: dict):
     @app.post("/generate", response_model=GenerateResponse)
     async def generate(request: GenerateRequest, api_key: str = Depends(verify_api_key)):
         start_time = time.time()
-        try:
+        #try:
+        if True:
             cached_answer = cache.get_generated(
                 request.query, 
                 request.instruction
@@ -152,7 +152,6 @@ def setup_api(config: dict):
             if cached_answer:
                 cached_reranked = cache.get_reranked(
                     request.query, 
-                    [doc["text"] for doc in retriever.documents], 
                     request.instruction
                 )
                 results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in cached_reranked]
@@ -184,15 +183,14 @@ def setup_api(config: dict):
                 query_embedding, 
                 request.top_k
             )
-            docs = [retriever.documents[idx]["text"] for idx, _ in retrieved]
+            docs = retriever.get_chunks_from_ids([idx for idx, _ in retrieved])
             scores = reranker_model.get_scores(
                 request.query, 
                 docs, 
                 request.instruction
             )
             reranked = sorted(
-                [(retrieved[i][0], score, retriever.documents[retrieved[i][0]]["text"])
-                    for i, score in enumerate(scores)],
+                [(retrieved[i][0], score, docs[i]) for i, score in enumerate(scores)],
                 key=lambda x: x[1],
                 reverse=True
             )[:request.top_n]
@@ -216,7 +214,7 @@ def setup_api(config: dict):
                 answer=answer, 
                 documents=results
             )
-        except Exception as e:
+        #except Exception as e:
             logger.error(f"Generation failed: {e}")
             raise HTTPException(status_code=500, detail=str(e))
 

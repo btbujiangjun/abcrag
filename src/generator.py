@@ -17,8 +17,10 @@ class Generator:
     def load(self):
         if self.model is None:
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-            self.model = AutoModelForCausalLM.from_pretrained(self.model_name, torch_dtype=torch.float16)
-            self.model = self.model.to(self.device)
+            self.model = AutoModelForCausalLM.from_pretrained(
+                self.model_name, 
+                torch_dtype=torch.float16
+            ).to(self.device)
             self.model.eval()
             logger.info(f"Loaded Generator: {self.model_name} on {self.device}")
 

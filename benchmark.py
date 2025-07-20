@@ -1,13 +1,13 @@
 import time
 import psutil
 import torch
+import numpy as np
 from loguru import logger
 from src.config import load_config
 from src.embedding import EmbeddingModel
 from src.reranker import RerankerModel
 from src.generator import Generator
 from src.retrieval import Retriever
-import numpy as np
 
 def benchmark(config_path: str, num_queries: int = 10):
     config = load_config(config_path)
@@ -17,9 +17,9 @@ def benchmark(config_path: str, num_queries: int = 10):
     retriever = Retriever(config, embedding_model)
 
     queries = [
-        "Python 中如何实现快速排序？",
-        "快速排序的时间复杂度是多少？",
-        "如何用中文描述快速排序？",
+        "LLM",
+        "CTR Predict",
+        "sequence modeling",
     ] * (num_queries // 3 + 1)
     queries = queries[:num_queries]
 
@@ -45,7 +45,8 @@ def benchmark(config_path: str, num_queries: int = 10):
 
         start_time = time.time()
         reranker_model.load()
-        docs = [retriever.documents[idx]["text"] for idx, _ in retrieved]
+    
+        docs = retriever.get_chunks_from_ids([idx for idx, _ in retrieved]) 
         reranker_model.get_scores(query, docs)
         reranking_times.append(time.time() - start_time)
         reranker_model.unload()

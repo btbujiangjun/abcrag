@@ -12,7 +12,7 @@ reranker_model:
 generator_model:
   name: "../models/Qwen/Qwen3-8B"  # Smaller LLM for MPS
   max_length: 512
-  max_new_tokens: 200
+  max_new_tokens: 2000
   device: "mps"
 
 # FAISS settings
@@ -21,6 +21,17 @@ faiss:
   nprobe: 10
   index_path: "embeddings.index"
 
+# Chunk setting
+chunk:
+  min_length: 20
+  chunk_size: 200
+  overlap: 10
+
+# lmdb setting
+lmdb:
+  path: "chunks.db"
+  map_size: 524288000
+  
 # Document store
 documents:
   path: "documents.json"

@@ -45,10 +45,10 @@ class RerankerModel:
 
     def get_scores(self, query: str, docs: List[str], instruction: Optional[str] = None) -> List[float]:
         try:
-            self.load()
             if not docs or not query:
                 raise ValueError("Query or documents list is empty")
             
+            self.load()
             input_texts = [f"{instruction or ''} Query: {query} Document: {doc}" for doc in docs]
             scores = []
             for i in range(0, len(input_texts), self.batch_size):

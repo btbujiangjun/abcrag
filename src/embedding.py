@@ -64,4 +64,5 @@ class EmbeddingModel:
             logger.error(f"Embedding generation failed: {e}")
             raise
         finally:
-            self.unload()
+            #self.unload()
+            pass

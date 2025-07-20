@@ -6,7 +6,12 @@ from hashlib import md5
 
 class Cache:
     def __init__(self, host: str, port: int, db: int, ttl: int):
-        self.client = redis.Redis(host=host, port=port, db=db, decode_responses=True)
+        self.client = redis.Redis(
+            host=host, 
+            port=port, 
+            db=db, 
+            decode_responses=True
+        )
         self.ttl = ttl
         logger.info(f"Initialized Redis cache at {host}:{port}, db={db}")
 
@@ -34,7 +39,7 @@ class Cache:
         except Exception as e:
             logger.error(f"Failed to set embedding in cache: {e}")
 
-    def get_reranked(self, query: str, docs: List[str], instruction: Optional[str] = None) -> Optional[List[Tuple[int, float, str]]]:
+    def get_reranked(self, query: str, instruction: Optional[str] = None) -> Optional[List[Tuple[int, float, str]]]:
         try:
             cache_key = self.get_cache_key(query, instruction)
             cached = self.client.get(f"reranked:{cache_key}")
@@ -50,7 +55,6 @@ class Cache:
         try:
             cache_key = self.get_cache_key(query, instruction)
             reranked = [[int_v, float_v.item(), str_v] for int_v, float_v, str_v in reranked]
-            print(reranked)
             self.client.setex(f"reranked:{cache_key}", self.ttl, json.dumps(reranked))
             logger.debug(f"Cached reranked results: {cache_key}")
         except Exception as e:

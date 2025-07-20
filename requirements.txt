@@ -7,4 +7,5 @@ pydantic
 loguru
 numpy
 redis
+plyvel
 psutil
