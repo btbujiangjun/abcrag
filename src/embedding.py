@@ -20,7 +20,7 @@ class EmbeddingModel:
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
             self.model = AutoModel.from_pretrained(
                 self.model_name, 
-                torch_dtype=torch.float16
+                torch_dtype=torch.float32
             )
             self.model = self.model.to(self.device)
             self.model.eval()
@@ -32,6 +32,11 @@ class EmbeddingModel:
             self.tokenizer = None
             torch.mps.empty_cache() if self.device == "mps" else None
             logger.info(f"Unloaded EmbeddingModel: {self.model_name}")
+
+    def _normalize_embeddings_np(self, embeddings):
+        norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+        norms = np.where(norms == 0, 1, norms)  # Avoid division by zero
+        return embeddings / norms
 
     def get_embeddings(self, texts: List[str], instruction: Optional[str] = None) -> np.ndarray:
         try:
@@ -59,7 +64,12 @@ class EmbeddingModel:
                     batch_embeddings = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
                 embeddings.append(batch_embeddings)
                 torch.mps.empty_cache() if self.device == "mps" else None
-            return np.vstack(embeddings)
+            embeddings = np.vstack(embeddings)
+            if np.any(np.isnan(embeddings)):
+                logger.error(f"NaN:{texts}{embeddings}")
+                embeddings = np.nan_to_num(embeddings, nan=0.0)
+            embeddings = self._normalize_embeddings_np(embeddings)
+            return embeddings
         except Exception as e:
             logger.error(f"Embedding generation failed: {e}")
             raise

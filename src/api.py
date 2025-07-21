@@ -21,10 +21,8 @@ api_key_header = APIKeyHeader(name="X-API-Key")
 async def verify_api_key(api_key: str = Security(api_key_header)):
     
     expected_key = os.getenv("API_KEY")
-    print(f"expected_key:{expected_key}")
     if not expected_key or api_key != expected_key:
         raise HTTPException(status_code=401, detail="Invalid API key")
-    print(f"api_key:{api_key}")
     return api_key
 
 class QueryRequest(BaseModel):
@@ -86,7 +84,7 @@ def setup_api(config: Config):
             )
             if cached_reranked:
                 results = [
-                    {"id": idx, "text": text[:100] + "...", "score": float(score)} 
+                    {"id": idx, "text": text, "score": float(score)} 
                         for idx, score, text in cached_reranked
                 ]
                 logger.info(f"Cache hit for query: {request.query}, latency: {time.time() - start_time:.3f}s")
@@ -114,12 +112,13 @@ def setup_api(config: Config):
                 request.top_k
             )
             docs = retriever.get_chunks_from_ids([idx for idx, _ in retrieved])
+            print("\n".join([doc for doc in docs]))
             scores = reranker_model.get_scores(
                 request.query, 
                 docs, 
                 request.instruction
             )
-            
+            print(scores) 
             reranked = sorted(
                 #[(retrieved[i][0], score, retriever.documents[retrieved[i][0]]["text"])
                 [(retrieved[i][0], score, docs[i]) for i, score in enumerate(scores)],
@@ -133,8 +132,8 @@ def setup_api(config: Config):
                 reranked, 
                 request.instruction
             )
-
-            results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in reranked]
+            
+            results = [{"id": idx, "text": text, "score": float(score)} for idx, score, text in reranked]
             logger.info(f"Processed query: {request.query}, latency: {time.time() - start_time:.3f}s")
             return QueryResponse(results=results)
         except Exception as e:

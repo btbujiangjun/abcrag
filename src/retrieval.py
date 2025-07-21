@@ -109,6 +109,7 @@ class Retriever:
             return
 
         embeddings = self.embedding_model.get_embeddings(chunks)
+        faiss.normalize_L2(embeddings)
         if self.index is None:
             self.index = faiss.IndexFlatIP(embeddings.shape[1])
         self.index.add(embeddings)

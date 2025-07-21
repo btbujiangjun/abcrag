@@ -10,7 +10,7 @@ reranker_model:
   batch_size: 8
   device: "mps"
 generator_model:
-  name: "../models/Qwen/Qwen3-8B"  # Smaller LLM for MPS
+  name: "../models/Qwen/Qwen3-8B"
   max_length: 512
   max_new_tokens: 200
   device: "mps"

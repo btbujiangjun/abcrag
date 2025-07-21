@@ -30,7 +30,7 @@ class RerankerModel:
             
             self.model = AutoModelForCausalLM.from_pretrained(
                 self.model_name, 
-                torch_dtype=torch.float16
+                torch_dtype=torch.float32
             )
             self.model = self.model.to(self.device)
             self.model.eval()
@@ -45,7 +45,7 @@ class RerankerModel:
 
     def get_scores(self, query: str, docs: List[str], instruction: Optional[str] = None) -> List[float]:
         try:
-            if not docs or not query:
+            if not all([docs, query]):
                 raise ValueError("Query or documents list is empty")
             
             self.load()
@@ -70,6 +70,9 @@ class RerankerModel:
                     batch_scores = torch.stack([false_vector, true_vector], dim=1)
                     batch_scores = torch.nn.functional.log_softmax(batch_scores, dim=1)
                     score = batch_scores[:, 1].exp().cpu().numpy()
+                    print("\n".join(batch_texts))
+                    print(inputs)
+                    print(batch_scores)
                 scores.extend(score)
                 torch.mps.empty_cache() if self.device == "mps" else None
             return scores
