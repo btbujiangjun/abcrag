@@ -20,7 +20,7 @@ class EmbeddingModel:
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
             self.model = AutoModel.from_pretrained(
                 self.model_name, 
-                torch_dtype=torch.float32
+                torch_dtype=torch.bfloat16
             )
             self.model = self.model.to(self.device)
             self.model.eval()
@@ -61,7 +61,7 @@ class EmbeddingModel:
                 with torch.no_grad():
                     torch.mps.synchronize() if self.device == "mps" else None
                     outputs = self.model(**inputs)
-                    batch_embeddings = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
+                    batch_embeddings = outputs.last_hidden_state.mean(dim=1).to(torch.float32).cpu().numpy()
                 embeddings.append(batch_embeddings)
                 torch.mps.empty_cache() if self.device == "mps" else None
             embeddings = np.vstack(embeddings)

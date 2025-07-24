@@ -23,7 +23,7 @@ faiss:
 
 # Chunk setting
 chunk:
-  min_length: 20
+  min_length: 2
   chunk_size: 200
   overlap: 10
 
@@ -41,7 +41,7 @@ redis:
   host: "localhost"
   port: 6379
   db: 0
-  ttl: 3600  # Cache TTL in seconds (1 hour)
+  ttl: 3  # Cache TTL in seconds (3600 eq 1 hour)
 
 # API settings
 api:

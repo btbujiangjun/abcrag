@@ -13,7 +13,7 @@ curl http://localhost:8000/health
 curl -X POST "http://localhost:8000/query" \
      -H "Content-Type: application/json" \
      -H "X-API-Key: 0b18bdec8fed047d0e45c43bc172faff" \
-     -d '{"query": "Python 中如何实现快速排序？", "top_k": 10, "top_n": 3, "instruction": "检索 Python 代码"}'
+     -d '{"query": "Python 中如何实现快速排序？", "top_k": 10, "top_n": 3, "instruction": "Given a web search query, retrieve relevant passages that answer the query"}'
 ```
 
 ```bash

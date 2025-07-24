@@ -31,7 +31,7 @@ class PdfExtractor(Extractor):
         chunks = []
         try:
             elements = partition_pdf(path)   
-            content = "\n\n".join([e.text for e in elements if len(e.text) >= self.min_length])            
+            content = " ".join([e.text.strip() for e in elements if len(e.text.strip()) >= self.min_length])            
             logger.info(F"Extracted {path}.")
             chunks = super().extract(content)
         except Exception as e:

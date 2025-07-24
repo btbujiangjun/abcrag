@@ -112,15 +112,12 @@ def setup_api(config: Config):
                 request.top_k
             )
             docs = retriever.get_chunks_from_ids([idx for idx, _ in retrieved])
-            print("\n".join([doc for doc in docs]))
             scores = reranker_model.get_scores(
                 request.query, 
                 docs, 
                 request.instruction
             )
-            print(scores) 
             reranked = sorted(
-                #[(retrieved[i][0], score, retriever.documents[retrieved[i][0]]["text"])
                 [(retrieved[i][0], score, docs[i]) for i, score in enumerate(scores)],
                 key=lambda x: x[1],
                 reverse=True
@@ -143,8 +140,7 @@ def setup_api(config: Config):
     @app.post("/generate", response_model=GenerateResponse)
     async def generate(request: GenerateRequest, api_key: str = Depends(verify_api_key)):
         start_time = time.time()
-        #try:
-        if True:
+        try:
             cached_answer = cache.get_generated(
                 request.query, 
                 request.instruction
@@ -209,12 +205,13 @@ def setup_api(config: Config):
             )
             results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in reranked]
             logger.info(f"Generated answer for query: {request.query}, latency: {time.time() - start_time:.3f}s")
+            print(answer)
             return GenerateResponse(
                 query=request.query, 
                 answer=answer, 
                 documents=results
             )
-        #except Exception as e:
+        except Exception as e:
             logger.error(f"Generation failed: {e}")
             raise HTTPException(status_code=500, detail=str(e))
 

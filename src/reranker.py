@@ -23,15 +23,10 @@ class RerankerModel:
                 self.model_name, 
                 padding_side='left'
             )
-            if self.tokenizer.pad_token is None:
-                self.tokenizer.pad_token = self.tokenizer.eos_token
             self.token_false_id = self.tokenizer.convert_tokens_to_ids("no")
             self.token_true_id = self.tokenizer.convert_tokens_to_ids("yes")
             
-            self.model = AutoModelForCausalLM.from_pretrained(
-                self.model_name, 
-                torch_dtype=torch.float32
-            )
+            self.model = AutoModelForCausalLM.from_pretrained(self.model_name)
             self.model = self.model.to(self.device)
             self.model.eval()
             logger.info(f"Loaded RerankerModel: {self.model_name} on {self.device}")
@@ -56,7 +51,8 @@ class RerankerModel:
                 inputs = self.tokenizer(
                     batch_texts,
                     padding=True,
-                    truncation=True,
+                    truncation='longest_first',
+                    return_attention_mask=False,
                     max_length=self.max_length,
                     return_tensors="pt"
                 )
@@ -70,10 +66,7 @@ class RerankerModel:
                     batch_scores = torch.stack([false_vector, true_vector], dim=1)
                     batch_scores = torch.nn.functional.log_softmax(batch_scores, dim=1)
                     score = batch_scores[:, 1].exp().cpu().numpy()
-                    print("\n".join(batch_texts))
-                    print(inputs)
-                    print(batch_scores)
-                scores.extend(score)
+                    scores.extend(score)
                 torch.mps.empty_cache() if self.device == "mps" else None
             return scores
         except Exception as e:
