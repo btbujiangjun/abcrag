@@ -150,7 +150,7 @@ def setup_api(config: Config):
                     request.query, 
                     request.instruction
                 )
-                results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in cached_reranked]
+                results = [{"id": idx, "text": text, "score": float(score)} for idx, score, text in cached_reranked]
                 logger.info(f"Cache hit for generated answer: {request.query}, latency: {time.time() - start_time:.3f}s")
                 return GenerateResponse(
                     query=request.query, 
@@ -203,9 +203,8 @@ def setup_api(config: Config):
                 answer, 
                 request.instruction
             )
-            results = [{"id": idx, "text": text[:100] + "...", "score": float(score)} for idx, score, text in reranked]
+            results = [{"id": idx, "text": text, "score": float(score)} for idx, score, text in reranked]
             logger.info(f"Generated answer for query: {request.query}, latency: {time.time() - start_time:.3f}s")
-            print(answer)
             return GenerateResponse(
                 query=request.query, 
                 answer=answer, 
