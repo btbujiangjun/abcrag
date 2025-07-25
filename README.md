@@ -3,7 +3,7 @@ from zero to one for `rag` using `Qwen3`, `Qwen3 Embedding`, `Qwen3 Reranker`
 
 ## Usage
 ```shell
-unzip chunks.db.zip && cat embeddings.index.zip_* > embeddings.index.zip && unzip embeddings.index.zip
+unzip chunks.db.zip && cat embeddings.index_* > embeddings.index
 ```
 ```bash
 curl http://localhost:8000/health
