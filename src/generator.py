@@ -57,4 +57,5 @@ class Generator:
             logger.error(f"Generation failed: {e}")
             raise
         finally:
-            self.unload()
+            #self.unload()
+            pass
